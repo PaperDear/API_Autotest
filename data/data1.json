@@ -1,0 +1,23 @@
+{
+  'method': 'post',
+  'url': '192.168.10.131:8888/api/private/v1/login',
+  'data': '{ "username": "admin","password": "123456",}',
+  'params': None,
+  'json': None,
+  'files': None,
+  'headers': None
+}
+
+
+{
+  'method': 'post',
+  'url': '192.168.10.131:8888/api/private/v1/login',
+  'data': {
+    'username': 'admin',
+    'password': '123456'
+  },
+  'params': None,
+  'json': None,
+  'files': None,
+  'headers': None
+}

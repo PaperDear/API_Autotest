@@ -1,7 +1,9 @@
 import openpyxl
+import os
+
 def read_excel():
     # 打开excel文件
-    wb=openpyxl.load_workbook("../data/data.xlsx")
+    wb=openpyxl.load_workbook(os.getcwd()+'/data/data.xlsx')
     # 选择表
     sheet=wb["Sheet1"]
     # 读数据

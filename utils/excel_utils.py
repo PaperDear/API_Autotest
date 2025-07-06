@@ -1,15 +1,18 @@
-import openpyxl
 import os
 
+import openpyxl
 
-def read_excel():
-    # 测试本文件执行时打开
-    # wb = openpyxl.load_workbook('../data/cases.xlsx')
+from config.config import CASE_FILE, SHEET_NAME
 
-    # 打开excel文件
-    wb = openpyxl.load_workbook(os.getcwd() + '/data/cases.xlsx')
+
+def read_excel(case_file=CASE_FILE,sheet_name=SHEET_NAME):
+    # 本地测试本文件执行时打开
+    wb = openpyxl.load_workbook(case_file)
+
+    # pytest执行时打开
+    # wb = openpyxl.load_workbook(os.getcwd() + '/data/cases.xlsx')
     # 选择表sheet1
-    sheet = wb["Sheet1"]
+    sheet = wb[sheet_name]
     # 读数据
     data = []
     # 首行为中文注解，提取key从第二行的英文开始

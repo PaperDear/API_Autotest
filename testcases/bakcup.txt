@@ -1,0 +1,27 @@
+1️⃣用例模板使用全局变量渲染步骤：
+1.case1执行的是登录后会将全局变量token置于self.all全局变量字典内供其他用例登录使用
+2.用例文件通过openpyxl读取后得到对应用例字典，如果要使用全局变量，需要通过jinja2进行模板渲染
+步骤为通过Template创建模板对象，再使用render()进行渲染
+Template只能对字符串进行操作，所以Template(str(case))时需要强制类型转换
+render函数内填入需要渲染的对象，例如self.all内的token,使用方法为render(self.all)
+3.渲染的结果为"{'Authorization':"{{token值}}"}"，如果要作为字典使用，需要使用eval()进行显式转换
+PS:eval()函数可将字符串当做Python的表达式执行并返回-->将字符串转成对应数据类型
+e.g. num=eval('42') 此时num的数据类型为int而不是字符串
+
+
+2️⃣文件上传需要传的值=file:(obj1,obj2,obj3)
+file:接口定义的参数名
+obj1:上传服务器时用的文件名，没传则默认使用obj2内打开的文件名
+obj2:用open()打开的文件对象
+obj3:文件类型，等同于jmeter内的MIME类型
+
+3️⃣allure报告初始化
+feature:模块名
+story:场景名
+title:用例标题
+description:描述
+issue:集成bug系统，可填入bug链接
+使用方法:
+函数外部：@allure.feature("模块名")
+函数内部：allure.dynamic.feature("模块名)
+

@@ -17,6 +17,7 @@ def json_extractor(case,res,global_var,index=0):
                 # 写入全局变量字典内
                 global_var[key] = value
             logging.info(f"4.JSON提取，根据{case['jsonExData']}提取参数，全局变量更新：({global_var})")
+            allure.attach(f"{global_var}","JSON提取后全局变量")
 
 def jdbc_extractor(case,global_var):
     # 数据库提取
@@ -28,3 +29,4 @@ def jdbc_extractor(case,global_var):
                 # 写入全局变量字典内
                 global_var[key] = value
         logging.info(f"4.JBDC提取，根据{case['sqlExData']}提取参数，全局变量字典更新：({global_var})")
+        allure.attach(f"{global_var}", "数据库提取后全局变量")

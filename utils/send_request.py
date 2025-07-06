@@ -9,6 +9,7 @@ from config.config import *
 def send_http_request(**requests_data):
     res = requests.request(**requests_data)
     logging.info(f"2.发送http请求，响应结果为:{res.text}")
+    allure.attach(f'{res.text}',"http响应结果")
     return res
 
 

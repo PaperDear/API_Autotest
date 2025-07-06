@@ -25,3 +25,11 @@ issue:集成bug系统，可填入bug链接
 函数外部：@allure.feature("模块名")
 函数内部：allure.dynamic.feature("模块名)
 
+4️⃣allure报告携带附件
+方法1：allure.attach(body,name=None,attachment_type=None,extenson=None)
+body=写入附件的内容
+name=附件名称
+attachment_type=附件类型，如jpg,csv
+extension=附件扩展名
+方法2：allure.attach.file(source,name=None,attachment_type=None,extension=None)
+source=文件路径

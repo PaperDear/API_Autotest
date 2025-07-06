@@ -13,3 +13,5 @@ DB_DATABASE="mydb"
 DB_PORT=3306
 DB_CHARSET="utf8"
 
+# MySQL资源销毁
+SQLS=["delete from sp_manager where mg_name='Jay'"]
